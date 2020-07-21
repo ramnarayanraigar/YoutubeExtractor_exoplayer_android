@@ -21,10 +21,17 @@ public class YouTubePlayerActivity extends YouTubeBaseActivity implements YouTub
     private MyPlaybackEventListener playbackEventListener;
     private YouTubePlayer player;
 
+
+    private String youtube_url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.youtube_player);
+
+        if (getIntent() != null) {
+            youtube_url = getIntent().getStringExtra("youtube_url");
+        }
 
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize("AIzaSyCG25IwSEZcJuF5Te7kko9XawkHaEJ48Ws", this);
@@ -51,7 +58,7 @@ public class YouTubePlayerActivity extends YouTubeBaseActivity implements YouTub
         player.setPlaybackEventListener(playbackEventListener);
 
         if (!wasRestored) { //https://www.youtube.com/watch?v=2jQJTppSCck
-            player.cueVideo("2jQJTppSCck"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
+            player.cueVideo(youtube_url == null ? "2jQJTppSCck" : youtube_url.substring(youtube_url.indexOf("v=") + 2)); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
         }
 
     }

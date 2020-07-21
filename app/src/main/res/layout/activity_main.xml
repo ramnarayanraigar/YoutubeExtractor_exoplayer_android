@@ -7,23 +7,54 @@
     tools:context=".MainActivity"
     android:padding="8sp">
 
+    <LinearLayout
+        android:id="@+id/enter_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_enter_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter valid youtube url"/>
+
+        <Button
+            android:id="@+id/extract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extract"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"/>
+        android:layout_below="@+id/enter_url"
+        android:text="YouTubePlayerAPI"/>
 
     <Button
         android:id="@+id/btn_exo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/next"
-        android:text="Exo"/>
+        android:text="Exo"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/next"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/next">
+        android:layout_below="@+id/recycler"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/desc"

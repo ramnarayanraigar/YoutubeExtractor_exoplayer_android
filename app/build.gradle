@@ -57,4 +57,7 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer-core:$exo_Version"
     implementation "com.google.android.exoplayer:exoplayer-dash:$exo_Version"
     implementation "com.google.android.exoplayer:exoplayer-ui:$exo_Version"
+
+    // recycler
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
